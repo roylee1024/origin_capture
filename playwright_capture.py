@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from functools import wraps
 from playwright.sync_api import sync_playwright
 import time
@@ -8,6 +9,8 @@ import base64
 import threading
 
 app = Flask(__name__)
+# Enable CORS for all routes and origins
+CORS(app)
 
 # 基本认证配置
 USERS = {
